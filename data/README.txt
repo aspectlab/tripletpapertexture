@@ -1,1 +1,0 @@
-Email the author at andy.klein@wwu.edu for access to the 1597 traing and 420 test images, stored as 1024x1024 greyscale PNG files.
