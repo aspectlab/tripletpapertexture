@@ -8,14 +8,14 @@ To fully reproduce the results, you will need to obtain a copy of the image data
 
 Steps to reproduce the results:
 
-1. First, create a directory with the following contents:
-    ./checkpoints        -- empty directory, stores checkpoints during training
-    ./data/train         -- contains 1597 training image files
-    ./data/test          -- contains 420 test image files
-    ./figs               -- empty directory, stores figures plotted during training
-    ./saved_model        -- pre-trained model
-    create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as train.npz and test.npz
-    triplet.ipynb        -- Main script
+1. First, create a directory with the following contents:<br>
+    ./checkpoints        -- empty directory, stores checkpoints during training<br>
+    ./data/train         -- contains 1597 training image files<br>
+    ./data/test          -- contains 420 test image files<br>
+    ./figs               -- empty directory, stores figures plotted during training<br>
+    ./saved_model        -- pre-trained model<br>
+    create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as train.npz and test.npz<br>
+    triplet.ipynb        -- Main script<br>
 
 2. Run create_datafiles.py to generate train.npz and test.npz.  You may delete the directories "train_tiled" and "test_tiled" which are created as part of this process.
 
