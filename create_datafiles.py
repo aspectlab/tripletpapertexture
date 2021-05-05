@@ -13,12 +13,12 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import numpy as np
 
 # tweakable/constant parameters
-TRAIN_INPUT_DIR =       'data/matisse_grey'   # directory of input images in training set
-TRAIN_OUTPUT_TILE_DIR = 'data/train_tiled'    # temp directory where tiled training images go
-TRAIN_OUTPUT_FILENAME = 'data/matisse_aug_valid.npz'    # data file where train images are stored
-TEST_INPUT_DIR =        'data/matisse_grey'    # directory of input images in test set
-TEST_OUTPUT_TILE_DIR =  'data/test_tiled'      # temp directory where tiled test images go
-TEST_OUTPUT_FILENAME =  'data/matisse.npz'     # data file where test images are stored
+TRAIN_INPUT_DIR =       'data/train'   # directory of input images in training set
+TRAIN_OUTPUT_TILE_DIR = 'data/train_tiled'  # directory of input images in test set
+TRAIN_OUTPUT_FILENAME = 'data/train.npz'    # data file where train images are stored
+TEST_INPUT_DIR =        'data/test'    # temp directory where tiled training images go
+TEST_OUTPUT_TILE_DIR =  'data/test_tiled'   # temp directory where tiled test images go
+TEST_OUTPUT_FILENAME =  'data/test.npz'     # data file where test images are stored
 TRAIN_AUGMENTEDTILES = 16                   # number of augmented tiles to put in training/validation sets
 TRAIN_VALIDATIONTILES = 3                   # number of tiles (drawn from regular+augmented) to use for validation
 SCALE = 4                                   # image downsampling factor in creating tiles
