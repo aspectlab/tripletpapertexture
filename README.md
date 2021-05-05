@@ -8,7 +8,7 @@ To fully reproduce the results, you will need to obtain a copy of the image data
 
 Steps to reproduce the results:
 
-1. First, create a directory with the following contents:<br>
+1. First, clone this repository which should result in a directory with the following contents:<br>
     checkpoints/         -- empty directory, stores checkpoints during training<br>
     data/train/          -- directory containing 1597 training image files<br>
     data/test/           -- directory containing 420 test image files<br>
