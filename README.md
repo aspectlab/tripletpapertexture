@@ -1,24 +1,25 @@
-#tripletpapertexture
+#flippingmatisse
 
-This code repository contains code used to generate results in this paper --
+This code repository contains experimental code used to determine possible "flips" in the Matisse lithograph dataset.  It does *not* contain the required image data referenced in step 2.
 
-L. Lackey, A. Grootveld, and A.G. Klein, “Semi-supervised convolutional triplet neural networks for assessing paper texture similarity,” in Proc. Asilomar Conf. on Signals, Systems, and Computers, Nov. 2020.
+Steps to get going:
 
-To fully reproduce the results, you will need to obtain a copy of the image data used in this project, consisting of 1597 greyscale PNG images in a "train" folder, and 420 greyscale PNG images in a "test" folder.  You may obtain access to the image files by emailing andy.klein@wwu.edu.  
+1. First, clone this git repository, which should give you the following:<br>
+    checkpoints/         -- empty directory, stores checkpoints during training<br>
+    data/                -- empty directory, place to put the image data<br>
+    create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as matisse.npz and matisse_aug_valid.npz<br>
+    flipping.ipynb       -- Main script<br>
+    README.md            -- this file<br>
+    saved_model.hdf5     -- provided pre-trained model<br>
 
-Steps to reproduce the results:
+2. If you were provided the 860 *greyscale* Matisse image, put them in a folder called ./data/matisse_grey, and you're done with this step.  Otherwise, if you were provided the raw color Matisse TIF images, put those 860 files in the folder ./data/matisse/.  Then, crop and convert them to greyscale with the following commands (requires ImageMagick) --
+mkdir data/matisse_grey/
+cd data/matisse/
+mogrify -format png -resize 1836x1536 -colorspace gray -crop 1024x1024+406+256 -define png:bit-depth=8 *.tif
+mv *.png ../matisse_grey/
 
-1. First, create a directory with the following contents:<br>
-    ./checkpoints        -- empty directory, stores checkpoints during training<br>
-    ./data/train         -- contains 1597 training image files<br>
-    ./data/test          -- contains 420 test image files<br>
-    ./figs               -- empty directory, stores figures plotted during training<br>
-    ./saved_model        -- pre-trained model<br>
-    create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as train.npz and test.npz<br>
-    triplet.ipynb        -- Main script<br>
+3. Run create_datafiles.py to generate matisse.npz and matisse_aug_valid.npz.  You may delete the directories "matisse_tiled" and "matisse_aug_valid" which are created as part of this process.
 
-2. Run create_datafiles.py to generate train.npz and test.npz.  You may delete the directories "train_tiled" and "test_tiled" which are created as part of this process.
+4. Run flipping.ipynb which will produce results based on a pre-trained model.  To train your own model instead, set "TRAIN_MODE = True".  Start fiddling!
 
-3. Run triplet.ipynb which will produce the results the same trained model used in the paper.  To train your own model instead, set "TRAIN_MODE = True".  
-
-Authors: L. Lackey, A. Grootveld, A.G. Klein
+Authors: L. Lackey, A. Grootveld, K. Aguilar, A.G. Klein
