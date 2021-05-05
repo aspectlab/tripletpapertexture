@@ -14,7 +14,7 @@ Steps to reproduce the results:
     data/test/           -- directory containing 420 test image files<br>
     figs/                -- empty directory, stores figures plotted during training<br>
     saved_model/         -- pre-trained model<br>
-    README.md            -- this READMER
+    README.md            -- this README<br>
     create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as train.npz and test.npz<br>
     triplet.ipynb        -- Main script<br>
 
