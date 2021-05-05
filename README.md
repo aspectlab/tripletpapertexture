@@ -9,11 +9,12 @@ To fully reproduce the results, you will need to obtain a copy of the image data
 Steps to reproduce the results:
 
 1. First, create a directory with the following contents:<br>
-    ./checkpoints        -- empty directory, stores checkpoints during training<br>
-    ./data/train         -- contains 1597 training image files<br>
-    ./data/test          -- contains 420 test image files<br>
-    ./figs               -- empty directory, stores figures plotted during training<br>
-    ./saved_model        -- pre-trained model<br>
+    checkpoints/         -- empty directory, stores checkpoints during training<br>
+    data/train/          -- directory containing 1597 training image files<br>
+    data/test/           -- directory containing 420 test image files<br>
+    figs/                -- empty directory, stores figures plotted during training<br>
+    saved_model/         -- pre-trained model<br>
+    README.md            -- this READMER
     create_datafiles.py  -- Python script to generate pre-processed images from raw images, stored as train.npz and test.npz<br>
     triplet.ipynb        -- Main script<br>
 
