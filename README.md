@@ -16,7 +16,8 @@ Steps to reproduce the results:
     saved_model/         -- pre-trained model<br>
     README.md            -- this README<br>
     create_datafiles.py  -- Python script to generate pre-processed data files from raw images<br>
-    triplet.ipynb        -- Main script<br>
+    triplet.ipynb        -- Main script (Jupyter notebook version)<br>
+    triplet.py           -- Main script (Python version)<br>
 
 2. Run `create_datafiles.py` to generate train.npz and test.npz.  You may delete the directories "train_tiled" and "test_tiled" which are created as part of this process.
 
