@@ -29,7 +29,7 @@ from IPython.display import clear_output
 TRAIN_MODE = False                 # set to True if we need to train, set to False to load pre-trained model
 TRAINDATA_FILE = 'data/train.npz'  # file containing training and validation data set
 TESTDATA_FILE =  'data/test.npz'   # file containing test data set
-MODEL_FILENAME = 'saved_model'     # file to load pre-trained model (if TRAIN_MODE=False)
+MODEL_FILENAME = 'asil20_weights'  # file to load pre-trained model (if TRAIN_MODE=False)
 EMB_SIZE = 16                      # num elements in feature vector / embedding output of NN
 BATCH_SIZE = 512                   # size of each batch
 EPOCHS = 400                       # number of epochs to run
@@ -101,7 +101,7 @@ def compute_image_distances(embs, tiles_per_image):
     # calculate per-image distances (approach #2) using euclidean difference of centroids
     centroids = np.zeros((num_classes, EMB_SIZE))
     for i in range(num_classes):
-        centroids[i]=embs[range(i*tiles_per_image, (i+1)*tiles_per_image),:].sum(axis=0)
+        centroids[i]=embs[range(i*tiles_per_image, (i+1)*tiles_per_image),:].mean(axis=0)/2
     img_distances2 = euclidean_distances(centroids)
     
     return [img_distances1, img_distances2, centroids]
@@ -264,7 +264,7 @@ if TRAIN_MODE:
         validation_data=validation_data, validation_steps=validation_steps
     )
 else:
-    embedding_model = tf.keras.models.load_model(MODEL_FILENAME, compile=False)
+    embedding_model.load_weights(MODEL_FILENAME+'.hdf5')
 
 
 # ## Compute training set tile features on final/trained network. Use tile features to compute training set image distances using two methods. Report mean self-similarity rank on training set (lower is better)
