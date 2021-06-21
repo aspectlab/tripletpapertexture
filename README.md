@@ -4,6 +4,8 @@ This code repository contains code used to generate results in this paper --
 
 L. Lackey, A. Grootveld, and A.G. Klein, “Semi-supervised convolutional triplet neural networks for assessing paper texture similarity,” in *Proc. Asilomar Conf. on Signals, Systems, and Computers*, Nov. 2020.
 
+The code may be freely used by others so long as we are attributed, and any published works should cite the above paper.
+
 To fully reproduce the results, you will need to obtain a copy of the image data used in this project, consisting of 1597 greyscale PNG images in a "train" folder, and 420 greyscale PNG images in a "test" folder.  You may obtain access to the image files by emailing andy.klein@wwu.edu.  
 
 Steps to reproduce the results:
